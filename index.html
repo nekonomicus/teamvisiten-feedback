@@ -72,6 +72,10 @@
             color: #86868b;
             margin-top: 20px;
         }
+        #restartButton {
+            display: none;
+            margin-top: 20px;
+        }
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
@@ -176,6 +180,7 @@
             
             <button type="submit">Feedback absenden</button>
         </form>
+        <button id="restartButton" style="display: none;">Neues Feedback geben</button>
         <div class="footer">
             Orthopädie Inselspital All Rights Reserved
         </div>
@@ -198,13 +203,36 @@
         .then(response => response.text())
         .then(data => {
             alert('Vielen Dank für Ihr Feedback!');
-            document.getElementById('feedbackForm').reset();
+            disableForm();
+            document.getElementById('restartButton').style.display = 'block';
         })
         .catch(error => {
             console.error('Error:', error);
             alert('Es gab einen Fehler beim Senden des Feedbacks. Bitte versuchen Sie es später erneut.');
         });
     });
+
+    document.getElementById('restartButton').addEventListener('click', function() {
+        enableForm();
+        this.style.display = 'none';
+        document.getElementById('feedbackForm').reset();
+    });
+
+    function disableForm() {
+        var form = document.getElementById('feedbackForm');
+        var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+            elements[i].disabled = true;
+        }
+    }
+
+    function enableForm() {
+        var form = document.getElementById('feedbackForm');
+        var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+            elements[i].disabled = false;
+        }
+    }
     </script>
 </body>
 </html>
