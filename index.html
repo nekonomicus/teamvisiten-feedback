@@ -14,7 +14,7 @@
             line-height: 1.5;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -29,7 +29,7 @@
             display: block;
             margin-bottom: 5px;
         }
-        input[type="text"], textarea {
+        input[type="text"], textarea, select {
             width: 100%;
             padding: 10px;
             border: 1px solid #3d3d3d;
@@ -43,11 +43,11 @@
         }
         .radio-group {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
         .radio-option {
-            margin-right: 10px;
+            margin-right: 20px;
             margin-bottom: 10px;
         }
         input[type="radio"] {
@@ -76,6 +76,10 @@
             display: none;
             margin-top: 20px;
         }
+        .problem-description, .improvement-suggestion {
+            display: none;
+            margin-top: 10px;
+        }
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
@@ -94,88 +98,128 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            
+
             <div class="question">
-                <p>1. Wie bewerten Sie die neue Teamstruktur?</p>
+                <label for="berufsgruppe">Berufsgruppe:</label>
+                <select id="berufsgruppe" name="berufsgruppe" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="Assistenzarzt">Assistenzarzt</option>
+                    <option value="Oberarzt">Oberarzt</option>
+                    <option value="Kader">Kader</option>
+                    <option value="Stationsleitung">Stationsleitung</option>
+                    <option value="Diplomierte Pflege und KFS">Diplomierte Pflege und KFS</option>
+                    <option value="Pflege in Ausbildung und FaGe">Pflege in Ausbildung und FaGe</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>Inhalt Visite</p>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="q1_1" name="teamstruktur" value="1" required>
-                        <label for="q1_1">1 (Sehr schlecht)</label>
+                        <input type="radio" id="inhaltVisite_yes" name="inhaltVisite" value="yes" required>
+                        <label for="inhaltVisite_yes">Problem</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="q1_2" name="teamstruktur" value="2">
-                        <label for="q1_2">2</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q1_3" name="teamstruktur" value="3">
-                        <label for="q1_3">3</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q1_4" name="teamstruktur" value="4">
-                        <label for="q1_4">4</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q1_5" name="teamstruktur" value="5">
-                        <label for="q1_5">5 (Sehr gut)</label>
+                        <input type="radio" id="inhaltVisite_no" name="inhaltVisite" value="no">
+                        <label for="inhaltVisite_no">Kein Problem</label>
                     </div>
                 </div>
+                <div class="problem-description" id="inhaltVisite_problem">
+                    <label for="inhaltVisite_problem_desc">Problembeschreibung:</label>
+                    <textarea id="inhaltVisite_problem_desc" name="inhaltVisite_problem_desc"></textarea>
+                </div>
+                <div class="improvement-suggestion">
+                    <label for="inhaltVisite_suggestion">Verbesserungsvorschlag:</label>
+                    <textarea id="inhaltVisite_suggestion" name="inhaltVisite_suggestion"></textarea>
+                </div>
             </div>
-            
+
             <div class="question">
-                <p>2. Ist der Zeitplan für die Umsetzung des Konzepts realistisch?</p>
+                <p>Ablauf Visite</p>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="q2_1" name="zeitplan" value="1" required>
-                        <label for="q2_1">1 (Gar nicht realistisch)</label>
+                        <input type="radio" id="ablaufVisite_yes" name="ablaufVisite" value="yes" required>
+                        <label for="ablaufVisite_yes">Problem</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="q2_2" name="zeitplan" value="2">
-                        <label for="q2_2">2</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q2_3" name="zeitplan" value="3">
-                        <label for="q2_3">3</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q2_4" name="zeitplan" value="4">
-                        <label for="q2_4">4</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q2_5" name="zeitplan" value="5">
-                        <label for="q2_5">5 (Sehr realistisch)</label>
+                        <input type="radio" id="ablaufVisite_no" name="ablaufVisite" value="no">
+                        <label for="ablaufVisite_no">Kein Problem</label>
                     </div>
                 </div>
+                <div class="problem-description" id="ablaufVisite_problem">
+                    <label for="ablaufVisite_problem_desc">Problembeschreibung:</label>
+                    <textarea id="ablaufVisite_problem_desc" name="ablaufVisite_problem_desc"></textarea>
+                </div>
+                <div class="improvement-suggestion">
+                    <label for="ablaufVisite_suggestion">Verbesserungsvorschlag:</label>
+                    <textarea id="ablaufVisite_suggestion" name="ablaufVisite_suggestion"></textarea>
+                </div>
             </div>
-            
+
             <div class="question">
-                <p>3. Wie effizient läuft die Arbeit mit der Pflege im neuen Konzept?</p>
+                <p>Prozess/Wartezeiten</p>
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" id="q3_1" name="effizienz" value="1" required>
-                        <label for="q3_1">1 (Sehr ineffizient)</label>
+                        <input type="radio" id="prozessWartezeiten_yes" name="prozessWartezeiten" value="yes" required>
+                        <label for="prozessWartezeiten_yes">Problem</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" id="q3_2" name="effizienz" value="2">
-                        <label for="q3_2">2</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q3_3" name="effizienz" value="3">
-                        <label for="q3_3">3</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q3_4" name="effizienz" value="4">
-                        <label for="q3_4">4</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="q3_5" name="effizienz" value="5">
-                        <label for="q3_5">5 (Sehr effizient)</label>
+                        <input type="radio" id="prozessWartezeiten_no" name="prozessWartezeiten" value="no">
+                        <label for="prozessWartezeiten_no">Kein Problem</label>
                     </div>
                 </div>
+                <div class="problem-description" id="prozessWartezeiten_problem">
+                    <label for="prozessWartezeiten_problem_desc">Problembeschreibung:</label>
+                    <textarea id="prozessWartezeiten_problem_desc" name="prozessWartezeiten_problem_desc"></textarea>
+                </div>
+                <div class="improvement-suggestion">
+                    <label for="prozessWartezeiten_suggestion">Verbesserungsvorschlag:</label>
+                    <textarea id="prozessWartezeiten_suggestion" name="prozessWartezeiten_suggestion"></textarea>
+                </div>
             </div>
-            
+
             <div class="question">
-                <label for="weiteresFeedback">4. Haben Sie weiteres Feedback zum Teamvisiten-Konzept?</label>
-                <textarea id="weiteresFeedback" name="weiteresFeedback"></textarea>
+                <p>Erreichbarkeit</p>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="erreichbarkeit_yes" name="erreichbarkeit" value="yes" required>
+                        <label for="erreichbarkeit_yes">Problem</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="erreichbarkeit_no" name="erreichbarkeit" value="no">
+                        <label for="erreichbarkeit_no">Kein Problem</label>
+                    </div>
+                </div>
+                <div class="problem-description" id="erreichbarkeit_problem">
+                    <label for="erreichbarkeit_problem_desc">Problembeschreibung:</label>
+                    <textarea id="erreichbarkeit_problem_desc" name="erreichbarkeit_problem_desc"></textarea>
+                </div>
+                <div class="improvement-suggestion">
+                    <label for="erreichbarkeit_suggestion">Verbesserungsvorschlag:</label>
+                    <textarea id="erreichbarkeit_suggestion" name="erreichbarkeit_suggestion"></textarea>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>Weiteres</p>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="weiteres_yes" name="weiteres" value="yes" required>
+                        <label for="weiteres_yes">Problem</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="weiteres_no" name="weiteres" value="no">
+                        <label for="weiteres_no">Kein Problem</label>
+                    </div>
+                </div>
+                <div class="problem-description" id="weiteres_problem">
+                    <label for="weiteres_problem_desc">Problembeschreibung:</label>
+                    <textarea id="weiteres_problem_desc" name="weiteres_problem_desc"></textarea>
+                </div>
+                <div class="improvement-suggestion">
+                    <label for="weiteres_suggestion">Verbesserungsvorschlag:</label>
+                    <textarea id="weiteres_suggestion" name="weiteres_suggestion"></textarea>
+                </div>
             </div>
             
             <button type="submit">Feedback absenden</button>
@@ -187,52 +231,76 @@
     </div>
 
     <script>
-    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        var formData = new FormData(this);
-        var jsonData = {};
-        formData.forEach(function(value, key){
-            jsonData[key] = value;
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('feedbackForm');
+        const categories = ['inhaltVisite', 'ablaufVisite', 'prozessWartezeiten', 'erreichbarkeit', 'weiteres'];
+
+        categories.forEach(category => {
+            const yesRadio = document.getElementById(`${category}_yes`);
+            const noRadio = document.getElementById(`${category}_no`);
+            const problemDiv = document.getElementById(`${category}_problem`);
+            const suggestionDiv = problemDiv.nextElementSibling;
+
+            yesRadio.addEventListener('change', function() {
+                problemDiv.style.display = 'block';
+                suggestionDiv.style.display = 'block';
+            });
+
+            noRadio.addEventListener('change', function() {
+                problemDiv.style.display = 'none';
+                suggestionDiv.style.display = 'block';
+            });
         });
-        
-        fetch('https://script.google.com/macros/s/AKfycbxkrXlEBFoqIhlLojwX6xQ4uhJqg11Fcl7I4q6B0WqYwbmBh3pubvLS2amTjdJ3lJqVKQ/exec', {
-            method: 'POST',
-            body: JSON.stringify(jsonData)
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert('Vielen Dank für Ihr Feedback!');
-            disableForm();
-            document.getElementById('restartButton').style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Es gab einen Fehler beim Senden des Feedbacks. Bitte versuchen Sie es später erneut.');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = new FormData(this);
+            var jsonData = {};
+            formData.forEach(function(value, key){
+                jsonData[key] = value;
+            });
+            
+            fetch('https://script.google.com/macros/s/AKfycbx5rmvK6oHm8MK93rXAmC9aiQHzRaJOm0meswr2-YPLW4ghHp2T9gk4lHXvbbDXxxF2Eg/exec', {
+                method: 'POST',
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Vielen Dank für Ihr Feedback!');
+                disableForm();
+                document.getElementById('restartButton').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Es gab einen Fehler beim Senden des Feedbacks. Bitte versuchen Sie es später erneut.');
+            });
         });
-    });
 
-    document.getElementById('restartButton').addEventListener('click', function() {
-        enableForm();
-        this.style.display = 'none';
-        document.getElementById('feedbackForm').reset();
-    });
+        document.getElementById('restartButton').addEventListener('click', function() {
+            enableForm();
+            this.style.display = 'none';
+            form.reset();
+            categories.forEach(category => {
+                document.getElementById(`${category}_problem`).style.display = 'none';
+                document.getElementById(`${category}_problem`).nextElementSibling.style.display = 'none';
+            });
+        });
 
-    function disableForm() {
-        var form = document.getElementById('feedbackForm');
-        var elements = form.elements;
-        for (var i = 0, len = elements.length; i < len; ++i) {
-            elements[i].disabled = true;
+        function disableForm() {
+            var elements = form.elements;
+            for (var i = 0, len = elements.length; i < len; ++i) {
+                elements[i].disabled = true;
+            }
         }
-    }
 
-    function enableForm() {
-        var form = document.getElementById('feedbackForm');
-        var elements = form.elements;
-        for (var i = 0, len = elements.length; i < len; ++i) {
-            elements[i].disabled = false;
+        function enableForm() {
+            var elements = form.elements;
+            for (var i = 0, len = elements.length; i < len; ++i) {
+                elements[i].disabled = false;
+            }
         }
-    }
+    });
     </script>
 </body>
 </html>
