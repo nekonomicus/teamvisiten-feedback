@@ -6,75 +6,79 @@
     <title>Feedback zum Teamvisiten-Konzept</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #FFFFFF url('https://i.imgur.com/JYmAfft.png') repeat;
-            color: #000066;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif;
+            background-color: #1d1d1d;
+            color: #f5f5f7;
             margin: 0;
             padding: 0;
+            line-height: 1.5;
         }
         .container {
-            width: 800px;
-            margin: 20px auto;
-            background: linear-gradient(to bottom, #FFFFFF, #E6E6FF);
-            border: 3px solid #9999FF;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
         }
         h1 {
-            background: linear-gradient(to bottom, #0000CC, #000099);
-            color: #FFFF00;
-            padding: 10px;
-            margin: -20px -20px 20px -20px;
-            border-top-left-radius: 7px;
-            border-top-right-radius: 7px;
-            text-align: center;
             font-size: 24px;
-            text-shadow: 2px 2px #000000;
+            margin-bottom: 20px;
         }
         .question {
             margin-bottom: 20px;
-            background-color: #E6E6FF;
-            padding: 10px;
-            border: 1px solid #9999FF;
-            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
         }
         input[type="text"], textarea {
             width: 100%;
-            padding: 5px;
-            border: 2px inset #9999FF;
-            background-color: #FFFFFF;
-            color: #000066;
+            padding: 10px;
+            border: 1px solid #3d3d3d;
+            background-color: #2d2d2d;
+            color: #f5f5f7;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 100px;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .radio-option {
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
         input[type="radio"] {
             margin-right: 5px;
         }
-        label {
-            display: inline-block;
-            margin-right: 10px;
-            color: #000099;
-        }
         button {
-            background: linear-gradient(to bottom, #00CC00, #009900);
-            color: #FFFFFF;
-            border: 2px outset #00CC00;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
+            background-color: #0071e3;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
             font-size: 16px;
-            margin-top: 20px;
             border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         button:hover {
-            background: linear-gradient(to bottom, #00FF00, #00CC00);
+            background-color: #0077ed;
         }
         .footer {
             text-align: center;
             font-size: 12px;
-            color: #666666;
+            color: #86868b;
             margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #9999FF;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .radio-group {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -89,48 +93,84 @@
             
             <div class="question">
                 <p>1. Wie bewerten Sie die neue Teamstruktur?</p>
-                <input type="radio" id="q1_1" name="teamstruktur" value="1" required>
-                <label for="q1_1">1 (Sehr schlecht)</label>
-                <input type="radio" id="q1_2" name="teamstruktur" value="2">
-                <label for="q1_2">2</label>
-                <input type="radio" id="q1_3" name="teamstruktur" value="3">
-                <label for="q1_3">3</label>
-                <input type="radio" id="q1_4" name="teamstruktur" value="4">
-                <label for="q1_4">4</label>
-                <input type="radio" id="q1_5" name="teamstruktur" value="5">
-                <label for="q1_5">5 (Sehr gut)</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="q1_1" name="teamstruktur" value="1" required>
+                        <label for="q1_1">1 (Sehr schlecht)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q1_2" name="teamstruktur" value="2">
+                        <label for="q1_2">2</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q1_3" name="teamstruktur" value="3">
+                        <label for="q1_3">3</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q1_4" name="teamstruktur" value="4">
+                        <label for="q1_4">4</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q1_5" name="teamstruktur" value="5">
+                        <label for="q1_5">5 (Sehr gut)</label>
+                    </div>
+                </div>
             </div>
             
             <div class="question">
                 <p>2. Ist der Zeitplan für die Umsetzung des Konzepts realistisch?</p>
-                <input type="radio" id="q2_1" name="zeitplan" value="1" required>
-                <label for="q2_1">1 (Gar nicht realistisch)</label>
-                <input type="radio" id="q2_2" name="zeitplan" value="2">
-                <label for="q2_2">2</label>
-                <input type="radio" id="q2_3" name="zeitplan" value="3">
-                <label for="q2_3">3</label>
-                <input type="radio" id="q2_4" name="zeitplan" value="4">
-                <label for="q2_4">4</label>
-                <input type="radio" id="q2_5" name="zeitplan" value="5">
-                <label for="q2_5">5 (Sehr realistisch)</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="q2_1" name="zeitplan" value="1" required>
+                        <label for="q2_1">1 (Gar nicht realistisch)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q2_2" name="zeitplan" value="2">
+                        <label for="q2_2">2</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q2_3" name="zeitplan" value="3">
+                        <label for="q2_3">3</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q2_4" name="zeitplan" value="4">
+                        <label for="q2_4">4</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q2_5" name="zeitplan" value="5">
+                        <label for="q2_5">5 (Sehr realistisch)</label>
+                    </div>
+                </div>
             </div>
             
             <div class="question">
                 <p>3. Wie effizient läuft die Arbeit mit der Pflege im neuen Konzept?</p>
-                <input type="radio" id="q3_1" name="effizienz" value="1" required>
-                <label for="q3_1">1 (Sehr ineffizient)</label>
-                <input type="radio" id="q3_2" name="effizienz" value="2">
-                <label for="q3_2">2</label>
-                <input type="radio" id="q3_3" name="effizienz" value="3">
-                <label for="q3_3">3</label>
-                <input type="radio" id="q3_4" name="effizienz" value="4">
-                <label for="q3_4">4</label>
-                <input type="radio" id="q3_5" name="effizienz" value="5">
-                <label for="q3_5">5 (Sehr effizient)</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="q3_1" name="effizienz" value="1" required>
+                        <label for="q3_1">1 (Sehr ineffizient)</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q3_2" name="effizienz" value="2">
+                        <label for="q3_2">2</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q3_3" name="effizienz" value="3">
+                        <label for="q3_3">3</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q3_4" name="effizienz" value="4">
+                        <label for="q3_4">4</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="q3_5" name="effizienz" value="5">
+                        <label for="q3_5">5 (Sehr effizient)</label>
+                    </div>
+                </div>
             </div>
             
             <div class="question">
-                <p>4. Haben Sie weiteres Feedback zum Teamvisiten-Konzept?</p>
+                <label for="weiteresFeedback">4. Haben Sie weiteres Feedback zum Teamvisiten-Konzept?</label>
                 <textarea id="weiteresFeedback" name="weiteresFeedback"></textarea>
             </div>
             
