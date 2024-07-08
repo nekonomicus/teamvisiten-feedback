@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback zum Teamvisiten-Konzept</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #fff;
+            color: #000;
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px;
+            border: 2px solid #b6c8db;
+        }
+        h1 { 
+            background-color: #2d4a7d;
+            color: #fff;
+            padding: 10px;
+            margin-top: 0;
+        }
+        .question { 
+            margin-bottom: 20px; 
+            background-color: #e8eef7;
+            padding: 10px;
+            border: 1px solid #b6c8db;
+        }
+        input[type="radio"] { margin-right: 5px; }
+        label { display: inline-block; margin-right: 10px; }
+        textarea { 
+            width: 100%; 
+            height: 100px;
+            border: 1px solid #b6c8db;
+        }
+        button {
+            background-color: #6699cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4477aa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback zum Teamvisiten-Konzept</h1>
+    <form id="feedbackForm">
+        <div class="question">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="question">
+            <p>1. Wie bewerten Sie die neue Teamstruktur?</p>
+            <input type="radio" id="q1_1" name="teamstruktur" value="1" required>
+            <label for="q1_1">1 (Sehr schlecht)</label>
+            <input type="radio" id="q1_2" name="teamstruktur" value="2">
+            <label for="q1_2">2</label>
+            <input type="radio" id="q1_3" name="teamstruktur" value="3">
+            <label for="q1_3">3</label>
+            <input type="radio" id="q1_4" name="teamstruktur" value="4">
+            <label for="q1_4">4</label>
+            <input type="radio" id="q1_5" name="teamstruktur" value="5">
+            <label for="q1_5">5 (Sehr gut)</label>
+        </div>
+        
+        <div class="question">
+            <p>2. Ist der Zeitplan für die Umsetzung des Konzepts realistisch?</p>
+            <input type="radio" id="q2_1" name="zeitplan" value="1" required>
+            <label for="q2_1">1 (Gar nicht realistisch)</label>
+            <input type="radio" id="q2_2" name="zeitplan" value="2">
+            <label for="q2_2">2</label>
+            <input type="radio" id="q2_3" name="zeitplan" value="3">
+            <label for="q2_3">3</label>
+            <input type="radio" id="q2_4" name="zeitplan" value="4">
+            <label for="q2_4">4</label>
+            <input type="radio" id="q2_5" name="zeitplan" value="5">
+            <label for="q2_5">5 (Sehr realistisch)</label>
+        </div>
+        
+        <div class="question">
+            <p>3. Wie effizient läuft die Arbeit mit der Pflege im neuen Konzept?</p>
+            <input type="radio" id="q3_1" name="effizienz" value="1" required>
+            <label for="q3_1">1 (Sehr ineffizient)</label>
+            <input type="radio" id="q3_2" name="effizienz" value="2">
+            <label for="q3_2">2</label>
+            <input type="radio" id="q3_3" name="effizienz" value="3">
+            <label for="q3_3">3</label>
+            <input type="radio" id="q3_4" name="effizienz" value="4">
+            <label for="q3_4">4</label>
+            <input type="radio" id="q3_5" name="effizienz" value="5">
+            <label for="q3_5">5 (Sehr effizient)</label>
+        </div>
+        
+        <div class="question">
+            <p>4. Haben Sie weiteres Feedback zum Teamvisiten-Konzept?</p>
+            <textarea id="weiteresFeedback" name="weiteresFeedback"></textarea>
+        </div>
+        
+        <button type="submit">Feedback absenden</button>
+    </form>
+</body>
+</html>
