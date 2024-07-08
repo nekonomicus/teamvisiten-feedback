@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback zum Teamvisiten-Konzept</title>
+    <link rel="stylesheet" href="2000s-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback zum Teamvisiten-Konzept</h1>
+        <form id="feedbackForm">
+            <div class="question">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="question">
+                <p>1. Wie bewerten Sie die neue Teamstruktur?</p>
+                <input type="radio" id="q1_1" name="teamstruktur" value="1" required>
+                <label for="q1_1">1 (Sehr schlecht)</label>
+                <input type="radio" id="q1_2" name="teamstruktur" value="2">
+                <label for="q1_2">2</label>
+                <input type="radio" id="q1_3" name="teamstruktur" value="3">
+                <label for="q1_3">3</label>
+                <input type="radio" id="q1_4" name="teamstruktur" value="4">
+                <label for="q1_4">4</label>
+                <input type="radio" id="q1_5" name="teamstruktur" value="5">
+                <label for="q1_5">5 (Sehr gut)</label>
+            </div>
+            
+            <div class="question">
+                <p>2. Ist der Zeitplan für die Umsetzung des Konzepts realistisch?</p>
+                <input type="radio" id="q2_1" name="zeitplan" value="1" required>
+                <label for="q2_1">1 (Gar nicht realistisch)</label>
+                <input type="radio" id="q2_2" name="zeitplan" value="2">
+                <label for="q2_2">2</label>
+                <input type="radio" id="q2_3" name="zeitplan" value="3">
+                <label for="q2_3">3</label>
+                <input type="radio" id="q2_4" name="zeitplan" value="4">
+                <label for="q2_4">4</label>
+                <input type="radio" id="q2_5" name="zeitplan" value="5">
+                <label for="q2_5">5 (Sehr realistisch)</label>
+            </div>
+            
+            <div class="question">
+                <p>3. Wie effizient läuft die Arbeit mit der Pflege im neuen Konzept?</p>
+                <input type="radio" id="q3_1" name="effizienz" value="1" required>
+                <label for="q3_1">1 (Sehr ineffizient)</label>
+                <input type="radio" id="q3_2" name="effizienz" value="2">
+                <label for="q3_2">2</label>
+                <input type="radio" id="q3_3" name="effizienz" value="3">
+                <label for="q3_3">3</label>
+                <input type="radio" id="q3_4" name="effizienz" value="4">
+                <label for="q3_4">4</label>
+                <input type="radio" id="q3_5" name="effizienz" value="5">
+                <label for="q3_5">5 (Sehr effizient)</label>
+            </div>
+            
+            <div class="question">
+                <p>4. Haben Sie weiteres Feedback zum Teamvisiten-Konzept?</p>
+                <textarea id="weiteresFeedback" name="weiteresFeedback"></textarea>
+            </div>
+            
+            <button type="submit">Feedback absenden</button>
+        </form>
+        <div class="footer">
+            Orthopädie Inselspital All Rights Reserved
+        </div>
+    </div>
 
+    <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var formData = new FormData(this);
+        var jsonData = {};
+        formData.forEach(function(value, key){
+            jsonData[key] = value;
+        });
+        
+        fetch('https://script.google.com/macros/s/AKfycbxkrXlEBFoqIhlLojwX6xQ4uhJqg11Fcl7I4q6B0WqYwbmBh3pubvLS2amTjdJ3lJqVKQ/exec', {
+            method: 'POST',
+            body: JSON.stringify(jsonData)
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('Vielen Dank für Ihr Feedback!');
+            document.getElementById('feedbackForm').reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Es gab einen Fehler beim Senden des Feedbacks. Bitte versuchen Sie es später erneut.');
+        });
+    });
+    </script>
+</body>
+</html>
